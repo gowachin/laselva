@@ -6,6 +6,9 @@ devtools::document('.')
 devtools::test()
 devtools::check()
 
+# This skip all tests...
+testthat::test_dir("tests/testthat/" )
+
 # precompute vignette
 knitr::knit("vignettes/laselva.Rmd.og",
             output = "vignettes/laselva.Rmd")
