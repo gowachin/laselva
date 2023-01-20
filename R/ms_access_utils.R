@@ -1,7 +1,7 @@
 #' extract tables from an ms access database file (.accdb)
-#' 
+#'
 #' uses mdbtools command line tools, specifically mdb-tables and mdb-export
-#' 
+#'
 #' @export
 #' @keywords internal
 #' @param file (character) a file path, must exist
@@ -19,6 +19,7 @@
 #' extract_ma(file)
 #' }
 extract_ma <- function(file) {
+    # NOTE only used for spanish files.
   os <- tolower(Sys.info()["sysname"])
   if (os == "windows")
     stop("required tool mdbtools is not available for Windows")
@@ -28,7 +29,7 @@ extract_ma <- function(file) {
     stop("mdbtools is not installed or can not be found, see ?extract_ma")
   z <- sys::exec_internal("mdb-tables", c("-1", file), error = FALSE)
   if (z$status != 0) stop(rawToChar(z$stderr))
-  
+
   tables <- strsplit(rawToChar(z$stdout), "\n")[[1]]
   res <- vector("list", length(tables))
   names(res) <- tables

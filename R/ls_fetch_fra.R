@@ -1,5 +1,5 @@
 #' French IGN NFI data
-#' 
+#'
 #' Fetch French IGN Institut National de L'Information Geographique
 #' et Forestiere data
 #'
@@ -11,37 +11,37 @@
 #' year
 #' @references https://inventaire-forestier.ign.fr/
 #' @return a list of tibbles
-#' 
+#'
 #' Documentation
 #' - documentation_year.csv
 #' - documentation_flora.csv
-#' 
+#'
 #' Dead and windfallen trees
 #' - dead_trees_forest_year.csv
 #' - dead_trees_poplar_year.csv
-#' 
+#'
 #' Covers
 #' - cover_forest_year.csv
-#' 
+#'
 #' Ecology
 #' - ecology_year.csv
-#' 
+#'
 #' FLora
 #' - flora_year.csv
-#' 
+#'
 #' First visits plots
 #' - plots_forest_year.csv
 #' - plots_poplar_year.csv
-#' 
+#'
 #' Living trees
 #' - trees_forest_year.csv
 #' - trees_poplar_year.csv
-#'  
+#'
 #' @examples \dontrun{
 #' res = ls_fetch_fra(year = 2017)
 #' res
 #' ls_fetch_fra(year = 2007)
-#' 
+#'
 #' # revisit data
 #' ls_fetch_fra_revisit(year = 2007)
 #' }
@@ -56,13 +56,16 @@ ls_fetch_fra <- function(year, ...) {
 }
 
 #' @export
-#' @rdname ls_fetch_fra 
+#' @rdname ls_fetch_fra
 ls_fetch_fra_revisit <- function(year, ...) {
   assert(year, c("numeric", "integer"))
   stopifnot(year <= 2018, year >= 2005)
+  # IDEA stopifnot(year <= 2018 + 5, year >= 2005)
   url <- file.path(fra_base(), sprintf("%s-%s-en.zip", year, year + 5))
   xx <- cache_GET(url, "france-ign", ...)
-  csv_files <- suppressMessages(un_zip(xx))
+  # if the zip file is not available, no http error code
+  # IDEA : check file size ?
+  csv_files <- suppressMessages(un_zip(xx)) # suppressing message is an issue here then
   bb <- suppressMessages(lapply(csv_files, f_read, sep = ";"))
   stats::setNames(bb, basename(csv_files))
 }

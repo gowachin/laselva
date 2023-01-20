@@ -15,7 +15,7 @@ knitr::opts_chunk$set(
 
 Access to Global Forest Inventory Data
 
-Docs: https://docs.ropensci.org/laselva/
+<!-- Docs: https://docs.ropensci.org/laselva/ -->
 
 Please cite `laselva` if you use it in a paper: `citation(package = 'laselva')`
 

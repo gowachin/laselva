@@ -5,7 +5,7 @@ fia_GET <- function(base, path, ...) {
   return(res)
 }
 
-tc <- function(x) Filter(Negate(is.null), x)
+tc <- function(x) Filter(Negate(is.null), x) # NOTE used ?
 
 fia_base <- function() "https://apps.fs.usda.gov"
 # "https://apps.fs.fed.us/fiadb-downloads"
@@ -26,6 +26,7 @@ just_un_zip <- function(x, exdir = NULL) {
 }
 
 assert <- function(x, y) {
+    # TODO replace with checkmate
   if (!is.null(x)) {
     if (!inherits(x, y)) {
       stop(deparse(substitute(x)), " must be of class ",

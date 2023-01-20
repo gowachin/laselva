@@ -6,7 +6,9 @@ Version: 0.0.9.91
 Authors@R: c(person("Georges", "Kunstler", role = c("ctb"),
     email = "georges.kunstler@gmail.com"),
              person("Scott", "Chamberlain", role = c("aut", "cre"),
-    email = "myrmecocystus@gmail.com"))
+    email = "myrmecocystus@gmail.com"),
+             person("Maxime", "Jaunatre", role = c("aut"),
+    email = "maxime.jaunatre@yahoo.fr"))
 License: MIT + file LICENSE
 URL: https://github.com/kunstler/laselva (source)
 BugReports: https://github.com/kunstler/laselva/issues
@@ -28,5 +30,5 @@ Suggests:
     rmarkdown,
     sys,
     emld
-RoxygenNote: 7.1.0
+RoxygenNote: 7.2.3
 VignetteBuilder: knitr

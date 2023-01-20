@@ -22,7 +22,8 @@ cache_GET <- function(url, path, file = NULL, ...) {
 
     # create directory if it doesn't exist yet
     laselva_cache$mkdir()
-    dir.create(file.path(laselva_cache$cache_path_get(), path), FALSE, TRUE)
+    dir.create(path = file.path(laselva_cache$cache_path_get(), path),
+               showWarnings = FALSE, recursive = TRUE)
     invisible(file.rename(temp_path, fpath))
 
     # return file path

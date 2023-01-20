@@ -1,1 +1,32 @@
-
+http_interactions:
+- request:
+    method: get
+    uri: https://inventaire-forestier.ign.fr/IMG/zip/2017-en.zip
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      User-Agent: libcurl/7.68.0 r-curl/4.3.2 crul/1.3
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      date: Mon, 16 Jan 2023 17:14:06 GMT
+      server: Apache/2.4.38 (Debian)
+      last-modified: Wed, 31 Mar 2021 14:48:22 GMT
+      etag: '"22c313-5bed634d1d980"'
+      accept-ranges: bytes
+      content-length: '2278163'
+      content-type: application/zip
+      strict-transport-security: max-age=16000000; includeSubDomains; preload;
+    body:
+      encoding: ''
+      file: yes
+      string: ../files/file58bc6c6a2bf6
+  recorded_at: 2023-01-16 17:14:06 GMT
+  recorded_with: vcr/1.2.0, webmockr/0.8.2
