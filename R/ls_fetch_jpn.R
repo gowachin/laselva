@@ -1,5 +1,5 @@
 #' Japan's Forest Data
-#' 
+#'
 #' Japan Ministry of the Environment, Monitoring Sites 1000 Project
 #'
 #' @export
@@ -9,7 +9,7 @@
 #' @return a list of data and metadata:
 #' - species_list: a data.frame with species information
 #' - site_list: a data.frame with site information
-#' - tree_data: a list of data.frame's named by their sites, which match the 
+#' - tree_data: a list of data.frame's named by their sites, which match the
 #' column `PlotID` in the `site_list` data.frame (except `-` is swapped with
 #' `_` for easier indexing)
 #' - metadata: an object of class `emld` containing metadata for the data
@@ -23,7 +23,7 @@ ls_fetch_jpn <- function(...) {
   # species list
   sppl <- jpn_get(jpn_fm$sp_list$data_id, jpn_fm$sp_list$docname, ...)
   spp_df <- f_read(sppl)
-  
+
   # site list
   sitel <- jpn_get(jpn_fm$site_list$data_id, jpn_fm$site_list$docname, ...)
   site_df <- f_read(sitel)
@@ -45,8 +45,8 @@ ls_fetch_jpn <- function(...) {
   }
 
   list(
-    species_list = spp_df, 
-    site_list = site_df, 
+    species_list = spp_df,
+    site_list = site_df,
     tree_data = tree_data,
     metadata = meta
   )
@@ -54,7 +54,7 @@ ls_fetch_jpn <- function(...) {
 
 jpn_base <- "http://db.cger.nies.go.jp/JaLTER"
 jpn_data <- file.path(jpn_base, "script/licence.php")
-jpn_eml <- file.path(jpn_base, 
+jpn_eml <- file.path(jpn_base,
   "metacat/metacat?action=read&qformat=xml&docid=ERDP_2011_01.10.2")
 jpn_get <- function(data_id, docname, ...) {
   fpath <- file.path(laselva_cache$cache_path_get(), "japan", docname)
@@ -64,9 +64,11 @@ jpn_get <- function(data_id, docname, ...) {
   } else {
     laselva_cache$mkdir()
     dir.create(file.path(laselva_cache$cache_path_get(), "japan"), FALSE, TRUE)
+    # TODO : refaire cette url en mieux !
+    jpn_data <- "https://db.cger.nies.go.jp/JaLTER/script/licence.php?lang=en&data_id=ERDP_2011_01.3.1&docname=SpList.csv"
     con <- HttpClient$new(url = jpn_data,
-      headers = list(`Content-Type` = "application/x-www-form-urlencoded"),
-      opts = list(...))
+      headers = list(`Content-Type` = "application/x-www-form-urlencoded"))#,
+      # opts = list(...))
     body <- list(username="janedoe", orgname="foobar",
       mailaddr="foo@bar.com", purpose="research", other_reason="x",
       data_id=data_id, docname=docname, lang="en")
