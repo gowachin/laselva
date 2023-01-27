@@ -5,7 +5,7 @@
 #' @return a list of three data.frames (as tibble's), one for
 #' reference metadata files, datasets by state and datasets
 #' with all states combined
-#' @references 
+#' @references
 #' https://apps.fs.usda.gov/fia/datamart/CSV/datamart_csv.html
 #' @examples \dontrun{
 #' x <- ls_list_usa()
@@ -22,3 +22,6 @@ ls_list_usa <- function(...) {
   tabs <- stats::setNames(tabs, c('ref_table', 'by_state', 'all_states'))
   lapply(tabs, tibble::as_tibble)
 }
+
+
+

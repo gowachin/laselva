@@ -3,57 +3,58 @@
 \name{ls_fetch_fra}
 \alias{ls_fetch_fra}
 \alias{ls_fetch_fra_revisit}
+\alias{ls_fetch_fra_raw}
 \title{French IGN NFI data}
 \usage{
 ls_fetch_fra(year, ...)
 
 ls_fetch_fra_revisit(year, ...)
+
+ls_fetch_fra_raw(...)
 }
 \arguments{
-\item{year}{(integer/numeric) data year to get. possible years: 2005-2018}
+\item{year}{Deprecated argument from \code{ls_fetch_fa()} and
+\code{ls_fetch_fra_revisit()}.}
 
 \item{...}{curl options passed on to \link[crul:verb-GET]{crul::verb-GET}}
 }
 \value{
 a list of tibbles
 
-Documentation
+Trees alive or dead
 \itemize{
-\item documentation_year.csv
-\item documentation_flora.csv
+\item ARBRE.csv
 }
 
-Dead and windfallen trees
+Dead wood
 \itemize{
-\item dead_trees_forest_year.csv
-\item dead_trees_poplar_year.csv
+\item BOIS_MORT.csv
 }
 
 Covers
 \itemize{
-\item cover_forest_year.csv
+\item COUVERT.csv
 }
 
 Ecology
 \itemize{
-\item ecology_year.csv
+\item ECOLOGIE.csv
 }
 
-FLora
+Flora
 \itemize{
-\item flora_year.csv
+\item FLORE.csv
 }
 
-First visits plots
+Plots information
 \itemize{
-\item plots_forest_year.csv
-\item plots_poplar_year.csv
+\item HABITAT.csv
+\item PLACETTE.csv
 }
 
-Living trees
+Species key
 \itemize{
-\item trees_forest_year.csv
-\item trees_poplar_year.csv
+\item espar-cdref13.csv
 }
 }
 \description{
@@ -61,18 +62,21 @@ Fetch French IGN Institut National de L'Information Geographique
 et Forestiere data
 }
 \details{
-\code{ls_fetch_fra()} gets the given years data, while
-\code{ls_fetch_fra_revisit()} gets revisit data for 5 years after the supplied
-year
+metadonnees.csv was not included in the export because of an erroneous format.
+This file is available for read in the cache, find where
+files are being cached with \code{laselva_cache$cache_path_get}. The path is
+\code{france-ign/metadonnees.csv} from there.
+
+Documentation is available in the same \verb{france-ign/} cache as pdf files.
+This documentation is written in french.
+
+\code{ls_fetch_fra()} and \code{ls_fetch_fra_revisit()} have been deprecated due to
+an IGN download method update.
 }
 \examples{
 \dontrun{
-res = ls_fetch_fra(year = 2017)
+res = ls_fetch_fr_raw()
 res
-ls_fetch_fra(year = 2007)
-
-# revisit data
-ls_fetch_fra_revisit(year = 2007)
 }
 }
 \references{

@@ -1,12 +1,12 @@
 http_interactions:
 - request:
     method: get
-    uri: https://ndownloader.figshare.com/files/6864174
+    uri: https://s3-eu-west-1.amazonaws.com/pstorage-npg-968563215/6864174/EUForestgenus.csv?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAIQYK5H3JTELHKKTA/20230127/eu-west-1/s3/aws4_request&X-Amz-Date=20230127T140046Z&X-Amz-Expires=10&X-Amz-SignedHeaders=host&X-Amz-Signature=d12621720840525629789dbdc327bd5872c4a85534e05aaa9f58656fb91fef2a
     body:
       encoding: ''
       string: ''
     headers:
-      User-Agent: libcurl/7.71.0 r-curl/4.3 crul/0.9.2.92
+      User-Agent: libcurl/7.68.0 r-curl/5.0.0 crul/1.3
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
   response:
@@ -16,29 +16,32 @@ http_interactions:
       explanation: Request fulfilled, document follows
     headers:
       status: HTTP/1.1 200 OK
-      x-amz-id-2: eAd5B+UcaREZBKZj7Y6z6V2fKnCzLFVVbV4xSQ+F1NxpdNME0dRwGqp656D5XHLMAOmR+H4AfvQ=
-      x-amz-request-id: E9BB5A0BF39A9ED9
-      date: Sat, 27 Jun 2020 00:43:02 GMT
-      last-modified: Fri, 04 Nov 2016 13:24:24 GMT
+      x-amz-id-2: UrJNThs8B41mLh+4E8uMsmFQbLSvI35Pz2SXAM8zKaqMoR0tJQ8QYCQ9r+hLXuE6zba891fuRi8=
+      x-amz-request-id: GZRRH2VBG9E8BV31
+      date: Fri, 27 Jan 2023 14:00:47 GMT
+      x-amz-replication-status: COMPLETED
+      last-modified: Fri, 30 Apr 2021 08:00:07 GMT
       etag: '"c0d9951ad6e5b7556cf0521770685692"'
+      x-amz-tagging-count: '1'
+      x-amz-version-id: clb1gBFqvDP1RFU_MDmkx7TY1CgQzDrf
       accept-ranges: bytes
       content-type: binary/octet-stream
-      content-length: '18933276'
       server: AmazonS3
+      content-length: '18933276'
     body:
-      encoding: UTF-8
+      encoding: ''
       file: yes
-      string: ../files/filefb7e3e0d30b6
-  recorded_at: 2020-06-27 00:43:31 GMT
-  recorded_with: vcr/0.5.4, webmockr/0.6.2
+      string: ../files/file2fbf16050108
+  recorded_at: 2023-01-27 14:00:48 GMT
+  recorded_with: vcr/1.2.0, webmockr/0.8.2
 - request:
     method: get
-    uri: https://ndownloader.figshare.com/files/6662535
+    uri: https://s3-eu-west-1.amazonaws.com/pstorage-npg-968563215/6662535/EUForestspecies.csv?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAIQYK5H3JTELHKKTA/20230127/eu-west-1/s3/aws4_request&X-Amz-Date=20230127T140047Z&X-Amz-Expires=10&X-Amz-SignedHeaders=host&X-Amz-Signature=3b1e12f974d7f6917df4adcba2ae9dc94a1be8dcf5b13f8aaee8ee1dc7894190
     body:
       encoding: ''
       string: ''
     headers:
-      User-Agent: libcurl/7.71.0 r-curl/4.3 crul/0.9.2.92
+      User-Agent: libcurl/7.68.0 r-curl/5.0.0 crul/1.3
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
   response:
@@ -48,18 +51,21 @@ http_interactions:
       explanation: Request fulfilled, document follows
     headers:
       status: HTTP/1.1 200 OK
-      x-amz-id-2: G5PPEyrQ5a6ebQgq7lkqehgdLMXtbA9XhlFt+rs6cHGgSyVRVyeQS4beG0RnULak8bCriEwOtdk=
-      x-amz-request-id: 0CED0DC39CA5C92C
-      date: Sat, 27 Jun 2020 00:43:15 GMT
-      last-modified: Fri, 28 Oct 2016 09:48:20 GMT
+      x-amz-id-2: awn9wlClAAuUcLpicqiMaq/JtnKa6bOHRhYx4zbtWvqc4URvCyNLOpyVnKE9oAgEomtf/X7nRY0=
+      x-amz-request-id: EMZ6ZBEAW2YJM2QG
+      date: Fri, 27 Jan 2023 14:00:48 GMT
+      x-amz-replication-status: COMPLETED
+      last-modified: Fri, 30 Apr 2021 08:00:06 GMT
       etag: '"a31421eacbc89d2e840ce8eac0f2346e"'
+      x-amz-tagging-count: '1'
+      x-amz-version-id: iFGeOnzep1wZKqxOrNZh.XyPxpAHQQsg
       accept-ranges: bytes
       content-type: binary/octet-stream
-      content-length: '36862458'
       server: AmazonS3
+      content-length: '36862458'
     body:
-      encoding: UTF-8
+      encoding: ''
       file: yes
-      string: ../files/filefb7e53f91c8d
-  recorded_at: 2020-06-27 00:43:31 GMT
-  recorded_with: vcr/0.5.4, webmockr/0.6.2
+      string: ../files/file2fbf2f1c4ed6
+  recorded_at: 2023-01-27 14:00:48 GMT
+  recorded_with: vcr/1.2.0, webmockr/0.8.2

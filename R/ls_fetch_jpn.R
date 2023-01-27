@@ -5,7 +5,7 @@
 #' @export
 #' @param ... curl options passed on to [crul::verb-GET]
 #' @references
-#' http://db.cger.nies.go.jp/JaLTER/ER_DataPapers/archives/2011/ERDP-2011-01/metadata
+#' https://db.cger.nies.go.jp/JaLTER/ER_DataPapers/archives/2011/ERDP-2011-01/metadata
 #' @return a list of data and metadata:
 #' - species_list: a data.frame with species information
 #' - site_list: a data.frame with site information
@@ -52,7 +52,7 @@ ls_fetch_jpn <- function(...) {
   )
 }
 
-jpn_base <- "http://db.cger.nies.go.jp/JaLTER"
+jpn_base <- "https://db.cger.nies.go.jp/JaLTER"
 jpn_data <- file.path(jpn_base, "script/licence.php")
 jpn_eml <- file.path(jpn_base,
   "metacat/metacat?action=read&qformat=xml&docid=ERDP_2011_01.10.2")
@@ -64,15 +64,14 @@ jpn_get <- function(data_id, docname, ...) {
   } else {
     laselva_cache$mkdir()
     dir.create(file.path(laselva_cache$cache_path_get(), "japan"), FALSE, TRUE)
-    # TODO : refaire cette url en mieux !
-    jpn_data <- "https://db.cger.nies.go.jp/JaLTER/script/licence.php?lang=en&data_id=ERDP_2011_01.3.1&docname=SpList.csv"
     con <- HttpClient$new(url = jpn_data,
-      headers = list(`Content-Type` = "application/x-www-form-urlencoded"))#,
-      # opts = list(...))
+      headers = list(`Content-Type` = "application/x-www-form-urlencoded"),
+      opts = list(...))
     body <- list(username="janedoe", orgname="foobar",
-      mailaddr="foo@bar.com", purpose="research", other_reason="x",
-      data_id=data_id, docname=docname, lang="en")
-    res <- con$post(body = body, encode = "form", disk = fpath)
+                 mailaddr="foo@bar.com", purpose="research", other_reason="x",
+                 data_id=data_id, docname=docname, lang="en")
+    res <- con$post(body = body,
+                    encode = "form", disk = fpath)
     res$raise_for_status()
     return(res$content)
   }

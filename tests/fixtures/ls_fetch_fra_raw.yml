@@ -1,0 +1,32 @@
+http_interactions:
+- request:
+    method: get
+    uri: https://inventaire-forestier.ign.fr/dataifn/data/export_dataifn_2005_2021.zip
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      User-Agent: libcurl/7.68.0 r-curl/5.0.0 crul/1.3
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      date: Fri, 27 Jan 2023 16:47:38 GMT
+      server: Apache/2.4.38 (Debian)
+      last-modified: Mon, 16 Jan 2023 13:51:58 GMT
+      etag: '"3506dd6-5f261e30db072"'
+      accept-ranges: bytes
+      content-length: '55602646'
+      content-type: application/zip
+      strict-transport-security: max-age=16000000; includeSubDomains; preload;
+    body:
+      encoding: ''
+      file: yes
+      string: ../files/file99581f645468
+  recorded_at: 2023-01-27 16:47:49 GMT
+  recorded_with: vcr/1.2.0, webmockr/0.8.2

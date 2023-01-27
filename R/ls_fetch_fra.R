@@ -4,70 +4,74 @@
 #' et Forestiere data
 #'
 #' @export
-#' @param year (integer/numeric) data year to get. possible years: 2005-2018
+#' @param year Deprecated argument from `ls_fetch_fa()` and
+#' `ls_fetch_fra_revisit()`.
 #' @param ... curl options passed on to [crul::verb-GET]
-#' @details `ls_fetch_fra()` gets the given years data, while
-#' `ls_fetch_fra_revisit()` gets revisit data for 5 years after the supplied
-#' year
 #' @references https://inventaire-forestier.ign.fr/
 #' @return a list of tibbles
 #'
-#' Documentation
-#' - documentation_year.csv
-#' - documentation_flora.csv
+#' Trees alive or dead
+#' - ARBRE.csv
 #'
-#' Dead and windfallen trees
-#' - dead_trees_forest_year.csv
-#' - dead_trees_poplar_year.csv
+#' Dead wood
+#' - BOIS_MORT.csv
 #'
 #' Covers
-#' - cover_forest_year.csv
+#' - COUVERT.csv
 #'
 #' Ecology
-#' - ecology_year.csv
+#' - ECOLOGIE.csv
 #'
-#' FLora
-#' - flora_year.csv
+#' Flora
+#' - FLORE.csv
 #'
-#' First visits plots
-#' - plots_forest_year.csv
-#' - plots_poplar_year.csv
+#' Plots information
+#' - HABITAT.csv
+#' - PLACETTE.csv
 #'
-#' Living trees
-#' - trees_forest_year.csv
-#' - trees_poplar_year.csv
+#' Species key
+#' - espar-cdref13.csv
+#'
+#' @details
+#' metadonnees.csv was not included in the export because of an erroneous format.
+#' This file is available for read in the cache, find where
+#' files are being cached with `laselva_cache$cache_path_get`. The path is
+#' `france-ign/metadonnees.csv` from there.
+#'
+#' Documentation is available in the same `france-ign/` cache as pdf files.
+#' This documentation is written in french.
+#'
+#' `ls_fetch_fra()` and `ls_fetch_fra_revisit()` have been deprecated due to
+#' an IGN download method update.
 #'
 #' @examples \dontrun{
-#' res = ls_fetch_fra(year = 2017)
+#' res = ls_fetch_fr_raw()
 #' res
-#' ls_fetch_fra(year = 2007)
-#'
-#' # revisit data
-#' ls_fetch_fra_revisit(year = 2007)
 #' }
 ls_fetch_fra <- function(year, ...) {
-  assert(year, c("numeric", "integer"))
-  stopifnot(year <= 2018, year >= 2005)
-  url <- file.path(fra_base(), sprintf("%s-en.zip", year))
-  xx <- cache_GET(url, "france-ign", ...)
-  csv_files <- suppressMessages(un_zip(xx))
-  bb <- suppressMessages(lapply(csv_files, f_read, sep = ";"))
-  stats::setNames(bb, basename(csv_files))
+
+    .Deprecated("ls_fetch_fr_raw")
+    ls_fetch_fra_raw(...)
 }
 
 #' @export
 #' @rdname ls_fetch_fra
 ls_fetch_fra_revisit <- function(year, ...) {
-  assert(year, c("numeric", "integer"))
-  stopifnot(year <= 2018, year >= 2005)
-  # IDEA stopifnot(year <= 2018 + 5, year >= 2005)
-  url <- file.path(fra_base(), sprintf("%s-%s-en.zip", year, year + 5))
-  xx <- cache_GET(url, "france-ign", ...)
-  # if the zip file is not available, no http error code
-  # IDEA : check file size ?
-  csv_files <- suppressMessages(un_zip(xx)) # suppressing message is an issue here then
-  bb <- suppressMessages(lapply(csv_files, f_read, sep = ";"))
-  stats::setNames(bb, basename(csv_files))
+
+    .Deprecated("ls_fetch_fr_raw")
+    ls_fetch_fra_raw(...)
+}
+
+#' @export
+#' @rdname ls_fetch_fra
+ls_fetch_fra_raw <- function(...){
+    url <- "https://inventaire-forestier.ign.fr/dataifn/data/export_dataifn_2005_2021.zip"
+    xx <- cache_GET(url, "france-ign", ...)
+    csv_files <- suppressMessages(un_zip(xx))
+    # FIXME remove the metadata table because of wrong format.
+    csv_files <- csv_files[ !grepl("metadonnees", csv_files) ]
+    bb <- suppressMessages(lapply(csv_files, f_read, sep = ";"))
+    stats::setNames(bb, basename(csv_files))
 }
 
 fra_base <- function() "https://inventaire-forestier.ign.fr/IMG/zip"
