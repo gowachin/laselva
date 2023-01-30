@@ -22,7 +22,8 @@ Imports:
     xml2,
     hoardr,
     tibble,
-    data.table
+    data.table,
+    rdryad
 Suggests:
     testthat,
     vcr,

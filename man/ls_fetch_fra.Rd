@@ -71,7 +71,8 @@ Documentation is available in the same \verb{france-ign/} cache as pdf files.
 This documentation is written in french.
 
 \code{ls_fetch_fra()} and \code{ls_fetch_fra_revisit()} have been deprecated due to
-an IGN download method update.
+an IGN download method update. These functions will trigger a
+\code{ls_fetch_fra_raw()} call in place.
 }
 \examples{
 \dontrun{

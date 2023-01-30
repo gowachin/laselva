@@ -42,7 +42,8 @@
 #' This documentation is written in french.
 #'
 #' `ls_fetch_fra()` and `ls_fetch_fra_revisit()` have been deprecated due to
-#' an IGN download method update.
+#' an IGN download method update. These functions will trigger a
+#' `ls_fetch_fra_raw()` call in place.
 #'
 #' @examples \dontrun{
 #' res = ls_fetch_fr_raw()
