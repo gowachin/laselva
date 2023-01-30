@@ -19,7 +19,7 @@
 #' extract_ma(file)
 #' }
 extract_ma <- function(file) {
-    # NOTE only used for spanish files.
+  # NOTE only used for spanish files.
   os <- tolower(Sys.info()["sysname"])
   if (os == "windows")
     stop("required tool mdbtools is not available for Windows")

@@ -2,7 +2,7 @@
 % Please edit documentation in R/ls_fetch_esp.R
 \name{ls_fetch_esp}
 \alias{ls_fetch_esp}
-\title{Spain's Third Naitonal Forest Inventory data}
+\title{Spain's Third National Forest Inventory data}
 \usage{
 ls_fetch_esp(location, ...)
 }

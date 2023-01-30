@@ -1,5 +1,5 @@
-#' Spain's Third Naitonal Forest Inventory data
-#' 
+#' Spain's Third National Forest Inventory data
+#'
 #' Note: command line tool mdbtools required to use this function
 #'
 #' @export

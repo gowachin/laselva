@@ -6,6 +6,8 @@
 
 * Added `ls_fech_fin_swe()` to load data from Finland and Sweden (#13).
 
+* Added `ls_fech_deu()` to load data from Germany (#16).
+
 * Deprecated `ls_fetch_fra()` and `ls_fetch_fra_revisit()` in favor of `ls_fetch_fra_raw()` because the previous way was using url loophole to access old dataset. The new dataset is composed of row data between 2005 and 2021.
 
 # laselva 0.0.9.91

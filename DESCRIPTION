@@ -23,7 +23,8 @@ Imports:
     hoardr,
     tibble,
     data.table,
-    rdryad
+    rdryad,
+    sf
 Suggests:
     testthat,
     vcr,

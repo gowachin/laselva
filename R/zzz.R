@@ -22,8 +22,10 @@ assert <- function(x, y) {
 }
 
 f_read <- function(x, sep = "auto") {
-  tibble::as_tibble(data.table::fread(x, sep = sep, data.table = FALSE,
-                                      showProgress = FALSE))
+  tibble::as_tibble(data.table::fread(
+      x, sep = sep, data.table = FALSE,
+      showProgress = FALSE, integer64 = "double"
+  ))
 }
 
 strct <- function(str, pattern) regmatches(str, regexpr(pattern, str))

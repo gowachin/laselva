@@ -1,4 +1,7 @@
 skip_on_cran()
+# skip_on_ci()
+
+laselva_cache$cache_path_set(full_path = "../files")
 
 test_that("ls_fetch_fin_swe", {
     x <- ls_fetch_fin_swe()

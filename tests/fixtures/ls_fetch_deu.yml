@@ -1,0 +1,125 @@
+http_interactions:
+- request:
+    method: get
+    uri: https://bwi.info/Download/de/BWI-Basisdaten/ACCESS2003/ShapeFile_Tnr_INSPIRE_Poly1000.zip
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      User-Agent: libcurl/7.68.0 r-curl/5.0.0 crul/1.3
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      content-type: application/x-zip-compressed
+      last-modified: Wed, 02 Mar 2016 10:56:08 GMT
+      accept-ranges: bytes
+      etag: '"d8d734207274d11:0"'
+      server: Microsoft-IIS/8.5
+      x-powered-by: ASP.NET
+      date: Thu, 02 Feb 2023 17:07:59 GMT
+      content-length: '1583409'
+    body:
+      encoding: ''
+      file: yes
+      string: ../files/file7dc67febaf85
+  recorded_at: 2023-02-02 15:49:51 GMT
+  recorded_with: vcr/1.2.0, webmockr/0.8.2
+- request:
+    method: get
+    uri: https://bwi.info/Download/de/BWI-Basisdaten/ACCESS2003/bwi20150320_alle_daten2002.zip
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      User-Agent: libcurl/7.68.0 r-curl/5.0.0 crul/1.3
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      content-type: application/x-zip-compressed
+      last-modified: Wed, 25 Mar 2015 07:19:43 GMT
+      accept-ranges: bytes
+      etag: '"80118110cc66d01:0"'
+      server: Microsoft-IIS/8.5
+      x-powered-by: ASP.NET
+      date: Thu, 02 Feb 2023 17:08:00 GMT
+      content-length: '111970463'
+    body:
+      encoding: ''
+      file: yes
+      string: ../files/file7dc6128f38a
+  recorded_at: 2023-02-02 15:49:51 GMT
+  recorded_with: vcr/1.2.0, webmockr/0.8.2
+- request:
+    method: get
+    uri: https://bwi.info/Download/de/BWI-Basisdaten/ACCESS2003/bwi20150320_alle_daten2012.zip
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      User-Agent: libcurl/7.68.0 r-curl/5.0.0 crul/1.3
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      content-type: application/x-zip-compressed
+      last-modified: Tue, 31 Mar 2015 09:00:10 GMT
+      accept-ranges: bytes
+      etag: '"0c95a17916bd01:0"'
+      server: Microsoft-IIS/8.5
+      x-powered-by: ASP.NET
+      date: Thu, 02 Feb 2023 17:08:29 GMT
+      content-length: '79999650'
+    body:
+      encoding: ''
+      file: yes
+      string: ../files/file7dc6778b8c96
+  recorded_at: 2023-02-02 15:49:51 GMT
+  recorded_with: vcr/1.2.0, webmockr/0.8.2
+- request:
+    method: get
+    uri: https://bwi.info/Download/de/BWI-Basisdaten/ACCESS2003/bwi20150320_alle_daten2002-2012.zip
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      User-Agent: libcurl/7.68.0 r-curl/5.0.0 crul/1.3
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      content-type: application/x-zip-compressed
+      last-modified: Wed, 25 Mar 2015 07:20:12 GMT
+      accept-ranges: bytes
+      etag: '"01eca21cc66d01:0"'
+      server: Microsoft-IIS/8.5
+      x-powered-by: ASP.NET
+      date: Thu, 02 Feb 2023 17:08:56 GMT
+      content-length: '79722836'
+    body:
+      encoding: ''
+      file: yes
+      string: ../files/file7dc618a45cf1
+  recorded_at: 2023-02-02 15:49:51 GMT
+  recorded_with: vcr/1.2.0, webmockr/0.8.2

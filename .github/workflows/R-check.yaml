@@ -31,15 +31,17 @@ jobs:
         with:
           r-version: ${{ matrix.config.r }}
 
-      - uses: r-lib/actions/setup-r-dependencies@v2
-        with:
-          extra-packages: any::remotes
-
       - name: install macOS system dependencies
         if: runner.os == 'macOS'
         continue-on-error: true
         run: |
+          brew install gdal
           brew install mdbtools v8
+          brew install udunits
+
+      - uses: r-lib/actions/setup-r-dependencies@v2
+        with:
+          extra-packages: any::remotes
 
       - name: Install system dependencies
         if: runner.os == 'Linux'
