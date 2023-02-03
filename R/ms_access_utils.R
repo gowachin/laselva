@@ -21,12 +21,15 @@
 extract_ma <- function(file) {
   # NOTE only used for spanish files.
   os <- tolower(Sys.info()["sysname"])
-  if (os == "windows")
-    stop("required tool mdbtools is not available for Windows")
+  if (os == "windows"){
+      stop("required tool mdbtools is not available for Windows")
+  }
+
   check_for_a_pkg("sys")
   mdbtab <- Sys.which("mdb-tables")
   if (!nzchar(mdbtab[[1]]))
-    stop("mdbtools is not installed or can not be found, see ?extract_ma")
+      stop("mdbtools is not installed or can not be found, see ?extract_ma")
+
   z <- sys::exec_internal("mdb-tables", c("-1", file), error = FALSE)
   if (z$status != 0) stop(rawToChar(z$stderr))
 
@@ -34,9 +37,10 @@ extract_ma <- function(file) {
   res <- vector("list", length(tables))
   names(res) <- tables
   for (tab in tables) {
-    f <- tempfile()
-    b <- sys::exec_wait("mdb-export", c("-b", "strip", file, tab), std_out = f)
-    res[[tab]] <- tibble::as_tibble(data.table::fread(f, data.table = FALSE))
+      f <- tempfile()
+      b <- sys::exec_wait("mdb-export", c("-b", "strip", file, tab), std_out = f)
+      res[[tab]] <- tibble::as_tibble(data.table::fread(f, data.table = FALSE))
   }
+
   return(res)
 }
