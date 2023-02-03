@@ -10,6 +10,8 @@
 
 * Deprecated `ls_fetch_fra()` and `ls_fetch_fra_revisit()` in favor of `ls_fetch_fra_raw()` because the previous way was using url loophole to access old dataset. The new dataset is composed of row data between 2005 and 2021.
 
+* Edited the github action, now the package is tested on all system, and r-devel has been switched from macOS to ubuntu.
+
 # laselva 0.0.9.91
 
 * Previous development from Scott Chamberlain.

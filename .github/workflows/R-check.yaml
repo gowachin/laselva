@@ -14,8 +14,9 @@ jobs:
         config:
         - { os: windows-latest, r: 'release'}
         - { os: macOS-12, r: 'release'}
-        - { os: macOS-12, r: 'devel'}
+        # - { os: macOS-12, r: 'devel'}
         - { os: ubuntu-22.04, r: 'release', rspm: "https://packagemanager.rstudio.com/cran/__linux__/xenial/latest"}
+        - { os: ubuntu-22.04, r: 'devel', rspm: "https://packagemanager.rstudio.com/cran/__linux__/xenial/latest"}
 
     env:
       R_REMOTES_NO_ERRORS_FROM_WARNINGS: true
@@ -35,7 +36,7 @@ jobs:
         if: runner.os == 'macOS'
         continue-on-error: true
         run: |
-          brew install gdal
+          brew install gdal --ignore-dependencies
           brew install mdbtools v8
           brew install udunits
 
